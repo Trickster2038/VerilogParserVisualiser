@@ -1,0 +1,88 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/Professional/Desktop/XilinxVerilogAsicSha256/Asic/Asic/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/Professional/Desktop/XilinxVerilogAsicSha256/Asic/Asic/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: logic_module.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\func_t2.v" into library work
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_sigma0.v" included at line 2.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/right_cyclic_shift.v" included at line 2.
+Parsing module <right_cyclic_shift>.
+Parsing module <func_sigma0>.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_Ma.v" included at line 3.
+Parsing module <func_Ma>.
+Parsing module <func_t2>.
+Analyzing Verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\func_t1.v" into library work
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_sigma1.v" included at line 2.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/right_cyclic_shift.v" included at line 2.
+Parsing module <func_sigma1>.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_ch.v" included at line 3.
+Parsing module <func_ch>.
+Parsing module <func_t1>.
+Analyzing Verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic_module.v" into library work
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\/logic/func_t1.v" included at line 2.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_sigma1.v" included at line 2.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/right_cyclic_shift.v" included at line 2.
+Parsing module <func_sigma1>.
+ERROR:HDLCompiler:687 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_sigma1.v" Line 22: Illegal redeclaration of module <func_sigma1>.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_ch.v" included at line 3.
+Parsing module <func_ch>.
+ERROR:HDLCompiler:598 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_ch.v" Line 21: Module <func_ch> ignored due to previous errors.
+Parsing module <func_t1>.
+ERROR:HDLCompiler:598 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\/logic/func_t1.v" Line 23: Module <func_t1> ignored due to previous errors.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_t2.v" included at line 3.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_sigma0.v" included at line 2.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/right_cyclic_shift.v" included at line 2.
+Parsing module <func_sigma0>.
+ERROR:HDLCompiler:598 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_sigma0.v" Line 22: Module <func_sigma0> ignored due to previous errors.
+Parsing verilog file "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_Ma.v" included at line 3.
+Parsing module <func_Ma>.
+ERROR:HDLCompiler:598 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_Ma.v" Line 21: Module <func_Ma> ignored due to previous errors.
+Parsing module <func_t2>.
+ERROR:HDLCompiler:598 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic\/func_t2.v" Line 23: Module <func_t2> ignored due to previous errors.
+Parsing module <logic_module>.
+ERROR:HDLCompiler:598 - "C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic_module.v" Line 23: Module <logic_module> ignored due to previous errors.
+Verilog file C:\Users\Professional\Desktop\XilinxVerilogAsicSha256\Asic\source\logic_module.v ignored due to errors
+--> 
+
+Total memory usage is 4494544 kilobytes
+
+Number of errors   :    7 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
