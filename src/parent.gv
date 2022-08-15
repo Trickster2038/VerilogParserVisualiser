@@ -1,0 +1,496 @@
+graph parent {
+	"|_asic_core(asic_core.v:24)
+" [label="|_asic_core(asic_core.v:24)
+"]
+	subgraph clusterasic_core {
+		node [shape=box]
+		graph [label=asic_core]
+		"+|_k_generator(k_generator.v:21)
+" [label="+|_k_generator(k_generator.v:21)
+"]
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+		subgraph clusterk_generator {
+			node [shape=box]
+			graph [label=k_generator]
+		}
+	}
+	subgraph clusterasic_core {
+		node [shape=box]
+		graph [label=asic_core]
+		"+|_logic_module(logic_module.v:23)
+" [label="+|_logic_module(logic_module.v:23)
+"]
+		subgraph clusterlogic_module {
+			node [shape=box]
+			graph [label=logic_module]
+		}
+		subgraph clusterlogic_module {
+			node [shape=box]
+			graph [label=logic_module]
+		}
+		subgraph clusterlogic_module {
+			node [shape=box]
+			graph [label=logic_module]
+			"++|_func_t1(func_t1.v:23)
+" [label="++|_func_t1(func_t1.v:23)
+"]
+			subgraph clusterfunc_t1 {
+				node [shape=box]
+				graph [label=func_t1]
+			}
+			subgraph clusterfunc_t1 {
+				node [shape=box]
+				graph [label=func_t1]
+			}
+			subgraph clusterfunc_t1 {
+				node [shape=box]
+				graph [label=func_t1]
+			}
+			subgraph clusterfunc_t1 {
+				node [shape=box]
+				graph [label=func_t1]
+			}
+			subgraph clusterfunc_t1 {
+				node [shape=box]
+				graph [label=func_t1]
+				"+++|_func_ch(func_ch.v:21)
+" [label="+++|_func_ch(func_ch.v:21)
+"]
+				subgraph clusterfunc_ch {
+					node [shape=box]
+					graph [label=func_ch]
+				}
+				subgraph clusterfunc_ch {
+					node [shape=box]
+					graph [label=func_ch]
+				}
+				subgraph clusterfunc_ch {
+					node [shape=box]
+					graph [label=func_ch]
+				}
+				subgraph clusterfunc_ch {
+					node [shape=box]
+					graph [label=func_ch]
+				}
+			}
+			subgraph clusterfunc_t1 {
+				node [shape=box]
+				graph [label=func_t1]
+				"+++|_func_sigma1(func_sigma1.v:22)
+" [label="+++|_func_sigma1(func_sigma1.v:22)
+"]
+				subgraph clusterfunc_sigma1 {
+					node [shape=box]
+					graph [label=func_sigma1]
+				}
+				subgraph clusterfunc_sigma1 {
+					node [shape=box]
+					graph [label=func_sigma1]
+				}
+				subgraph clusterfunc_sigma1 {
+					node [shape=box]
+					graph [label=func_sigma1]
+				}
+				subgraph clusterfunc_sigma1 {
+					node [shape=box]
+					graph [label=func_sigma1]
+				}
+				subgraph clusterfunc_sigma1 {
+					node [shape=box]
+					graph [label=func_sigma1]
+				}
+			}
+		}
+		subgraph clusterlogic_module {
+			node [shape=box]
+			graph [label=logic_module]
+			"++|_func_t2(func_t2.v:23)
+" [label="++|_func_t2(func_t2.v:23)
+"]
+			subgraph clusterfunc_t2 {
+				node [shape=box]
+				graph [label=func_t2]
+			}
+			subgraph clusterfunc_t2 {
+				node [shape=box]
+				graph [label=func_t2]
+				"+++|_func_Ma(func_Ma.v:21)
+" [label="+++|_func_Ma(func_Ma.v:21)
+"]
+				subgraph clusterfunc_Ma {
+					node [shape=box]
+					graph [label=func_Ma]
+				}
+				subgraph clusterfunc_Ma {
+					node [shape=box]
+					graph [label=func_Ma]
+				}
+				subgraph clusterfunc_Ma {
+					node [shape=box]
+					graph [label=func_Ma]
+				}
+				subgraph clusterfunc_Ma {
+					node [shape=box]
+					graph [label=func_Ma]
+				}
+				subgraph clusterfunc_Ma {
+					node [shape=box]
+					graph [label=func_Ma]
+				}
+			}
+			subgraph clusterfunc_t2 {
+				node [shape=box]
+				graph [label=func_t2]
+				"+++|_func_sigma0(func_sigma0.v:22)
+" [label="+++|_func_sigma0(func_sigma0.v:22)
+"]
+				subgraph clusterfunc_sigma0 {
+					node [shape=box]
+					graph [label=func_sigma0]
+				}
+				subgraph clusterfunc_sigma0 {
+					node [shape=box]
+					graph [label=func_sigma0]
+				}
+				subgraph clusterfunc_sigma0 {
+					node [shape=box]
+					graph [label=func_sigma0]
+				}
+				subgraph clusterfunc_sigma0 {
+					node [shape=box]
+					graph [label=func_sigma0]
+				}
+				subgraph clusterfunc_sigma0 {
+					node [shape=box]
+					graph [label=func_sigma0]
+				}
+			}
+		}
+	}
+	subgraph clusterasic_core {
+		node [shape=box]
+		graph [label=asic_core]
+		"+|_memory_switch(memory_switch.v:21)
+" [label="+|_memory_switch(memory_switch.v:21)
+"]
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+		subgraph clustermemory_switch {
+			node [shape=box]
+			graph [label=memory_switch]
+		}
+	}
+}

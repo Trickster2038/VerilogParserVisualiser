@@ -1,34 +1,44 @@
 import json
+from re import S
+import graphviz
 
 class Project:
-
-    tree = ""
 
     def __init__(self, raw_data: str):
         self.data = json.loads(raw_data)
         self.creator = self.data["creator"] or "Undefined"
         self.modules = self.data["modules"] or {}
+
+        self.tree = ""
+        self.tree_graph = graphviz.Graph('schema_gv', filename='scheme.gv', engine='dot')
+        self.tree_graph.attr(rankdir='LR')
     
     # def build_tree(self, depth, max_depth=0)
 
-    def to_graphviz(self, root_node: str, depth: int=0, max_depth: int=0):
+    def to_graphviz(self, root_node: str, depth: int=0, root_graph = None, max_depth: int=0):
         if depth == 0:
-            Project.tree = ""
+            self.tree = ""
 
-        if root_node[0] != "$":
-            Project.tree += ((depth * "  " + "|_") + root_node + "(" + self.modules[root_node]["attributes"]["src"] + ")\n")
-            if self.modules[root_node]["cells"] != {}:
-                for x in self.modules[root_node]["cells"].values():
-                # if x['type'][0] != "$":
-                    self.to_graphviz(x['type'], depth + 1)
-                # print(x['type'])
-        else:
-            Project.tree += ((depth * "  " + "|_") + root_node + "(synthetic)\n")
-
+        root_graph = root_graph or graphviz.Graph('parent')
+        # root_graph.attr('graph', label=root_node)
 
         
+            # c.node('foo'+str(depth), 'bar'+str(depth))
+            # c.edge('foo', 'bar')
 
-        return Project.tree
+        if root_node[0] != "$":
+            s = ((depth * "+" + "|_") + root_node + "(" + self.modules[root_node]["attributes"]["src"] + ")\n")
+            self.tree += s 
+            root_graph.node(s, s) # c.node(s, s)
+            if self.modules[root_node]["cells"] != {}:
+                for x in self.modules[root_node]["cells"].values():
+                    with root_graph.subgraph(name='cluster'+root_node, node_attr={'shape': 'box'}) as c:
+                        c.attr('graph', label=root_node)
+                        self.to_graphviz(x['type'], depth + 1, c)
+        else:
+            self.tree += ((depth * "+" + "|_") + root_node + "(synthetic)\n")
+
+        return root_graph
 
 
 
@@ -37,5 +47,5 @@ if __name__ == "__main__":
     with open(data_path, 'r') as file:
         data_txt = file.read().replace('\n', '')
     proj = Project(data_txt)
-    # print(str(proj.data["creator"]))
     print(proj.to_graphviz("asic_core"))
+    proj.to_graphviz("asic_core").view()
