@@ -1,114 +1,121 @@
 graph parent {
+	graph [splines=spline]
+	graph [rankdir=LR]
 	subgraph cluster_asic_core {
 		node [shape=record]
 		graph [label=asic_core]
-	struct_k_generator [label="{<in_2_7> round_n |}|k_generator|{<in_8_39> k_out |}"];		connection_2_7 -- struct_k_generator:in_2_7 [label=round_n]
-	}
+		graph [splines=spline]
+		graph [rankdir=LR]
+	struct_k_generator [label="{{<in_2_7> round_n |}|k_generator|{<in_8_39> k_out |}}"];	connection_2_7 [shape=point]	connection_2_7 -- struct_k_generator:in_2_7 [label=round_n]	connection_8_39 [shape=point]	struct_k_generator:out_8_39 -- connection_8_39 [label=k_out]	}
 	subgraph cluster_asic_core {
 		node [shape=record]
 		graph [label=asic_core]
+		graph [splines=spline]
+		graph [rankdir=LR]
 		subgraph cluster_logic_module {
 			node [shape=record]
 			graph [label=logic_module]
+			graph [splines=spline]
+			graph [rankdir=LR]
 			"[!][!]$add(synthetic)
-#2b442cd7-7351-497d-bf08-8b7257c0e2b3" [label="[!][!]$add(synthetic)
+#1d89535f-2525-4bc4-b4b7-fe8ac1496b66" [label="[!][!]$add(synthetic)
 "]
 		}
 		subgraph cluster_logic_module {
 			node [shape=record]
 			graph [label=logic_module]
+			graph [splines=spline]
+			graph [rankdir=LR]
 			"[!][!]$add(synthetic)
-#b730c4be-0734-4c4f-8a65-5deeacfa7169" [label="[!][!]$add(synthetic)
+#1b1ee164-9b17-4e4f-becd-4d4e0a76e3aa" [label="[!][!]$add(synthetic)
 "]
 		}
 		subgraph cluster_logic_module {
 			node [shape=record]
 			graph [label=logic_module]
+			graph [splines=spline]
+			graph [rankdir=LR]
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
+				graph [splines=spline]
+				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#a577cb31-76de-4dfe-b281-eece2a9806e5" [label="[!][!][!]$add(synthetic)
+#903cb1b9-633e-41e9-ae64-87f2c63f9f25" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
+				graph [splines=spline]
+				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#afdf50ae-71f8-4ecb-ae6b-4d4402c8652a" [label="[!][!][!]$add(synthetic)
+#034f15c0-dabb-430e-8cfb-779aea663ccf" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
+				graph [splines=spline]
+				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#df241d17-9c1c-40b6-b132-9a0903fae430" [label="[!][!][!]$add(synthetic)
+#abf46240-3298-4bb0-a181-447e1d797733" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
+				graph [splines=spline]
+				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#9c8f223f-a033-4ca6-b34b-cd3daa0b343d" [label="[!][!][!]$add(synthetic)
+#ae67a658-a69b-4834-b977-becdc9420a24" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
-			struct_func_ch [label="{<in_2_33> in_E |<in_34_65> in_F |<in_66_97> in_G |}|func_ch|{<in_98_129> func |}"];				connection_2_33 -- struct_func_ch:in_2_33 [label=in_E]
-				connection_34_65 -- struct_func_ch:in_34_65 [label=in_F]
-				connection_66_97 -- struct_func_ch:in_66_97 [label=in_G]
-			}
+				graph [splines=spline]
+				graph [rankdir=LR]
+			struct_func_ch [label="{{<in_2_33> in_E |<in_34_65> in_F |<in_66_97> in_G |}|func_ch|{<in_98_129> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_ch:in_2_33 [label=in_E]			connection_34_65 [shape=point]			connection_34_65 -- struct_func_ch:in_34_65 [label=in_F]			connection_66_97 [shape=point]			connection_66_97 -- struct_func_ch:in_66_97 [label=in_G]			connection_98_129 [shape=point]			struct_func_ch:out_98_129 -- connection_98_129 [label=func]			}
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
-			struct_func_sigma1 [label="{<in_2_33> in_E |}|func_sigma1|{<in_34_65> func |}"];				connection_2_33 -- struct_func_sigma1:in_2_33 [label=in_E]
-			}
+				graph [splines=spline]
+				graph [rankdir=LR]
+			struct_func_sigma1 [label="{{<in_2_33> in_E |}|func_sigma1|{<in_34_65> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_sigma1:in_2_33 [label=in_E]			connection_34_65 [shape=point]			struct_func_sigma1:out_34_65 -- connection_34_65 [label=func]			}
 		}
 		subgraph cluster_logic_module {
 			node [shape=record]
 			graph [label=logic_module]
+			graph [splines=spline]
+			graph [rankdir=LR]
 			subgraph cluster_func_t2 {
 				node [shape=record]
 				graph [label=func_t2]
+				graph [splines=spline]
+				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#1be49fa3-7550-4075-ab9d-2bb6579fee92" [label="[!][!][!]$add(synthetic)
+#28550ed8-716d-47ab-9981-706fecdedd9b" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph cluster_func_t2 {
 				node [shape=record]
 				graph [label=func_t2]
-			struct_func_Ma [label="{<in_2_33> in_A |<in_34_65> in_B |<in_66_97> in_C |}|func_Ma|{<in_98_129> func |}"];				connection_2_33 -- struct_func_Ma:in_2_33 [label=in_A]
-				connection_34_65 -- struct_func_Ma:in_34_65 [label=in_B]
-				connection_66_97 -- struct_func_Ma:in_66_97 [label=in_C]
-			}
+				graph [splines=spline]
+				graph [rankdir=LR]
+			struct_func_Ma [label="{{<in_2_33> in_A |<in_34_65> in_B |<in_66_97> in_C |}|func_Ma|{<in_98_129> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_Ma:in_2_33 [label=in_A]			connection_34_65 [shape=point]			connection_34_65 -- struct_func_Ma:in_34_65 [label=in_B]			connection_66_97 [shape=point]			connection_66_97 -- struct_func_Ma:in_66_97 [label=in_C]			connection_98_129 [shape=point]			struct_func_Ma:out_98_129 -- connection_98_129 [label=func]			}
 			subgraph cluster_func_t2 {
 				node [shape=record]
 				graph [label=func_t2]
-			struct_func_sigma0 [label="{<in_2_33> in_A |}|func_sigma0|{<in_34_65> func |}"];				connection_2_33 -- struct_func_sigma0:in_2_33 [label=in_A]
-			}
+				graph [splines=spline]
+				graph [rankdir=LR]
+			struct_func_sigma0 [label="{{<in_2_33> in_A |}|func_sigma0|{<in_34_65> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_sigma0:in_2_33 [label=in_A]			connection_34_65 [shape=point]			struct_func_sigma0:out_34_65 -- connection_34_65 [label=func]			}
 		}
 	}
 	subgraph cluster_asic_core {
 		node [shape=record]
 		graph [label=asic_core]
-	struct_memory_switch [label="{<in_2_2> addr |<in_3_3> clk |<in_4_35> in_A_1 |<in_36_67> in_B_1 |<in_68_99> in_C_1 |<in_100_131> in_D_1 |<in_132_163> in_E_1 |<in_164_195> in_F_1 |<in_196_227> in_G_1 |<in_228_259> in_H_1 |<in_260_291> in_A_2 |<in_292_323> in_B_2 |<in_324_355> in_C_2 |<in_356_387> in_D_2 |<in_388_419> in_E_2 |<in_420_451> in_F_2 |<in_452_483> in_G_2 |<in_484_515> in_H_2 |}|memory_switch|{<in_516_547> out_A |<in_548_579> out_B |<in_580_611> out_C |<in_612_643> out_D |<in_644_675> out_E |<in_676_707> out_F |<in_708_739> out_G |<in_740_771> out_H |}"];		connection_2_2 -- struct_memory_switch:in_2_2 [label=addr]
-		connection_3_3 -- struct_memory_switch:in_3_3 [label=clk]
-		connection_4_35 -- struct_memory_switch:in_4_35 [label=in_A_1]
-		connection_36_67 -- struct_memory_switch:in_36_67 [label=in_B_1]
-		connection_68_99 -- struct_memory_switch:in_68_99 [label=in_C_1]
-		connection_100_131 -- struct_memory_switch:in_100_131 [label=in_D_1]
-		connection_132_163 -- struct_memory_switch:in_132_163 [label=in_E_1]
-		connection_164_195 -- struct_memory_switch:in_164_195 [label=in_F_1]
-		connection_196_227 -- struct_memory_switch:in_196_227 [label=in_G_1]
-		connection_228_259 -- struct_memory_switch:in_228_259 [label=in_H_1]
-		connection_260_291 -- struct_memory_switch:in_260_291 [label=in_A_2]
-		connection_292_323 -- struct_memory_switch:in_292_323 [label=in_B_2]
-		connection_324_355 -- struct_memory_switch:in_324_355 [label=in_C_2]
-		connection_356_387 -- struct_memory_switch:in_356_387 [label=in_D_2]
-		connection_388_419 -- struct_memory_switch:in_388_419 [label=in_E_2]
-		connection_420_451 -- struct_memory_switch:in_420_451 [label=in_F_2]
-		connection_452_483 -- struct_memory_switch:in_452_483 [label=in_G_2]
-		connection_484_515 -- struct_memory_switch:in_484_515 [label=in_H_2]
-	}
+		graph [splines=spline]
+		graph [rankdir=LR]
+	struct_memory_switch [label="{{<in_2_2> addr |<in_3_3> clk |<in_4_35> in_A_1 |<in_36_67> in_B_1 |<in_68_99> in_C_1 |<in_100_131> in_D_1 |<in_132_163> in_E_1 |<in_164_195> in_F_1 |<in_196_227> in_G_1 |<in_228_259> in_H_1 |<in_260_291> in_A_2 |<in_292_323> in_B_2 |<in_324_355> in_C_2 |<in_356_387> in_D_2 |<in_388_419> in_E_2 |<in_420_451> in_F_2 |<in_452_483> in_G_2 |<in_484_515> in_H_2 |}|memory_switch|{<in_516_547> out_A |<in_548_579> out_B |<in_580_611> out_C |<in_612_643> out_D |<in_644_675> out_E |<in_676_707> out_F |<in_708_739> out_G |<in_740_771> out_H |}}"];	connection_2_2 [shape=point]	connection_2_2 -- struct_memory_switch:in_2_2 [label=addr]	connection_3_3 [shape=point]	connection_3_3 -- struct_memory_switch:in_3_3 [label=clk]	connection_4_35 [shape=point]	connection_4_35 -- struct_memory_switch:in_4_35 [label=in_A_1]	connection_36_67 [shape=point]	connection_36_67 -- struct_memory_switch:in_36_67 [label=in_B_1]	connection_68_99 [shape=point]	connection_68_99 -- struct_memory_switch:in_68_99 [label=in_C_1]	connection_100_131 [shape=point]	connection_100_131 -- struct_memory_switch:in_100_131 [label=in_D_1]	connection_132_163 [shape=point]	connection_132_163 -- struct_memory_switch:in_132_163 [label=in_E_1]	connection_164_195 [shape=point]	connection_164_195 -- struct_memory_switch:in_164_195 [label=in_F_1]	connection_196_227 [shape=point]	connection_196_227 -- struct_memory_switch:in_196_227 [label=in_G_1]	connection_228_259 [shape=point]	connection_228_259 -- struct_memory_switch:in_228_259 [label=in_H_1]	connection_260_291 [shape=point]	connection_260_291 -- struct_memory_switch:in_260_291 [label=in_A_2]	connection_292_323 [shape=point]	connection_292_323 -- struct_memory_switch:in_292_323 [label=in_B_2]	connection_324_355 [shape=point]	connection_324_355 -- struct_memory_switch:in_324_355 [label=in_C_2]	connection_356_387 [shape=point]	connection_356_387 -- struct_memory_switch:in_356_387 [label=in_D_2]	connection_388_419 [shape=point]	connection_388_419 -- struct_memory_switch:in_388_419 [label=in_E_2]	connection_420_451 [shape=point]	connection_420_451 -- struct_memory_switch:in_420_451 [label=in_F_2]	connection_452_483 [shape=point]	connection_452_483 -- struct_memory_switch:in_452_483 [label=in_G_2]	connection_484_515 [shape=point]	connection_484_515 -- struct_memory_switch:in_484_515 [label=in_H_2]	connection_516_547 [shape=point]	struct_memory_switch:out_516_547 -- connection_516_547 [label=out_A]	connection_548_579 [shape=point]	struct_memory_switch:out_548_579 -- connection_548_579 [label=out_B]	connection_580_611 [shape=point]	struct_memory_switch:out_580_611 -- connection_580_611 [label=out_C]	connection_612_643 [shape=point]	struct_memory_switch:out_612_643 -- connection_612_643 [label=out_D]	connection_644_675 [shape=point]	struct_memory_switch:out_644_675 -- connection_644_675 [label=out_E]	connection_676_707 [shape=point]	struct_memory_switch:out_676_707 -- connection_676_707 [label=out_F]	connection_708_739 [shape=point]	struct_memory_switch:out_708_739 -- connection_708_739 [label=out_G]	connection_740_771 [shape=point]	struct_memory_switch:out_740_771 -- connection_740_771 [label=out_H]	}
 }

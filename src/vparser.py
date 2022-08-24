@@ -1,4 +1,5 @@
 import json
+from logging import root
 import graphviz
 import uuid
 
@@ -15,12 +16,22 @@ class Project:
 
     def add_connections(self, root_graph, root_node, in_ports, out_ports):
         for port in in_ports:
-            root_graph.edge(
-                f"""connection_{port["from_bit"]}_{port["to_bit"]}""",
-                f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]}""", 
-                label=port["name"]
+            # root_graph.edge(
+            #     f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""",
+            #     f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]}""", 
+            #     label=port["name"]
+            #     )
+            root_graph.body.append(f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+            root_graph.body.append(
+                    f"""connection_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
+                    f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
+                    )
+        for port in out_ports:
+            root_graph.body.append(f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+            root_graph.body.append(
+                f"""struct_{root_node}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
+                f"""connection_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
                 )
-            # root_graph.edge("aaa", "bb")
         pass
 
     def stuct_to_graphviz(self, uuid_str: str, root_node: str, root_graph):
@@ -73,13 +84,15 @@ class Project:
 
         # root_graph.body.append(f""";""")
         # root_graph.body.append(root_node + " [label={" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}]")
-        root_graph.body.append("struct_" + root_node + """ [label="{""" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + """}"];""")
+        root_graph.body.append("struct_" + root_node + """ [label="{""" + "{" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}" + """}"];""")
         # root_graph.body.append("""struct3 [label="hello&#92;nworld |{ b |{c|<here> d|e}| f}| g | h"];""")
         return (in_ports, out_ports)
 
     def to_graphviz(self, root_node: str, depth: int = 0, root_graph=None, max_depth: int = 0):
 
         root_graph = root_graph or graphviz.Graph('parent')
+        root_graph.attr("graph", splines='spline')
+        root_graph.attr("graph", rankdir='LR')
         uuid_str = str(uuid.uuid4())
 
         if root_node[0] != "$":
@@ -111,4 +124,4 @@ if __name__ == "__main__":
     proj = Project(data_txt)
     x = proj.to_graphviz("asic_core").view()
     # dot.render(directory='doctest-output').replace('\\', '/')
-    print(proj.to_graphviz("asic_core").source)
+    # print(proj.to_graphviz("asic_core").source)
