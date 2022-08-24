@@ -2,9 +2,22 @@ graph parent {
 	subgraph clusterasic_core {
 		node [shape=box]
 		graph [label=asic_core]
-		"*k_generator(k_generator.v:21)
-#8147f2f8-c071-4565-844f-15f27c75266d" [label="*k_generator(k_generator.v:21)
-"]
+		"struct k_generator 3d9aab51-ae56-40e6-bb07-b7ecf19f0013" [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="in_round_n">round_n</TD></TR>
+                    </TABLE>
+                </TD>
+                <TD>k_generator</TD>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="out_k_out">k_out</TD></TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>>]
 	}
 	subgraph clusterasic_core {
 		node [shape=box]
@@ -13,14 +26,14 @@ graph parent {
 			node [shape=box]
 			graph [label=logic_module]
 			"[!][!]$add(synthetic)
-#bc9ddcd9-8a0f-487d-8c37-9e963f1c5b62" [label="[!][!]$add(synthetic)
+#8017e1b8-5b6e-44c1-b78e-b8a43cff2f68" [label="[!][!]$add(synthetic)
 "]
 		}
 		subgraph clusterlogic_module {
 			node [shape=box]
 			graph [label=logic_module]
 			"[!][!]$add(synthetic)
-#7fb86e60-b4d1-4a2c-8bb7-220d61bb011a" [label="[!][!]$add(synthetic)
+#3d11aadb-ac2f-4e9d-907f-6a3a6a563a12" [label="[!][!]$add(synthetic)
 "]
 		}
 		subgraph clusterlogic_module {
@@ -30,43 +43,69 @@ graph parent {
 				node [shape=box]
 				graph [label=func_t1]
 				"[!][!][!]$add(synthetic)
-#ff4187be-5a61-4286-983e-299439de94f8" [label="[!][!][!]$add(synthetic)
+#620f5722-6ff3-4e15-bad2-406175d44164" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph clusterfunc_t1 {
 				node [shape=box]
 				graph [label=func_t1]
 				"[!][!][!]$add(synthetic)
-#895840a7-3818-480c-b33e-8dd7b43a8f24" [label="[!][!][!]$add(synthetic)
+#d4dd66d9-b99e-46d1-b52d-5318fbfe8efb" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph clusterfunc_t1 {
 				node [shape=box]
 				graph [label=func_t1]
 				"[!][!][!]$add(synthetic)
-#177acff4-e9b7-4b2d-b83f-075ff59e51c6" [label="[!][!][!]$add(synthetic)
+#fc6c3cc2-b4e1-4a19-8dac-996585f74182" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph clusterfunc_t1 {
 				node [shape=box]
 				graph [label=func_t1]
 				"[!][!][!]$add(synthetic)
-#3ac20fb4-1d8b-49e2-b8bb-40279c5ad161" [label="[!][!][!]$add(synthetic)
+#799582cd-ec3e-467c-833e-491c09459c9f" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph clusterfunc_t1 {
 				node [shape=box]
 				graph [label=func_t1]
-				"***func_ch(func_ch.v:21)
-#14244c46-956a-4be1-a0f1-610ffa22b909" [label="***func_ch(func_ch.v:21)
-"]
+				"struct func_ch c7995e21-a243-4783-9cd0-a8c22c8b7b90" [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="in_in_E">in_E</TD></TR><TR><TD PORT="in_in_F">in_F</TD></TR><TR><TD PORT="in_in_G">in_G</TD></TR>
+                    </TABLE>
+                </TD>
+                <TD>func_ch</TD>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="out_func">func</TD></TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>>]
 			}
 			subgraph clusterfunc_t1 {
 				node [shape=box]
 				graph [label=func_t1]
-				"***func_sigma1(func_sigma1.v:22)
-#8e13874d-4218-4454-98fe-a8eb323cd20e" [label="***func_sigma1(func_sigma1.v:22)
-"]
+				"struct func_sigma1 38446fa8-01a6-4cbd-9320-64f25dc612dc" [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="in_in_E">in_E</TD></TR>
+                    </TABLE>
+                </TD>
+                <TD>func_sigma1</TD>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="out_func">func</TD></TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>>]
 			}
 		}
 		subgraph clusterlogic_module {
@@ -76,30 +115,69 @@ graph parent {
 				node [shape=box]
 				graph [label=func_t2]
 				"[!][!][!]$add(synthetic)
-#1b0c69a9-e488-46ac-bcf3-bb76586ebbfa" [label="[!][!][!]$add(synthetic)
+#fe10a23b-47ab-43e2-a89a-40a70f03705d" [label="[!][!][!]$add(synthetic)
 "]
 			}
 			subgraph clusterfunc_t2 {
 				node [shape=box]
 				graph [label=func_t2]
-				"***func_Ma(func_Ma.v:21)
-#86cfa7f9-1a14-4273-9a21-4c0a8656c345" [label="***func_Ma(func_Ma.v:21)
-"]
+				"struct func_Ma 8595e89c-fec3-4b7f-afde-28e33c3c9359" [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="in_in_A">in_A</TD></TR><TR><TD PORT="in_in_B">in_B</TD></TR><TR><TD PORT="in_in_C">in_C</TD></TR>
+                    </TABLE>
+                </TD>
+                <TD>func_Ma</TD>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="out_func">func</TD></TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>>]
 			}
 			subgraph clusterfunc_t2 {
 				node [shape=box]
 				graph [label=func_t2]
-				"***func_sigma0(func_sigma0.v:22)
-#67868a38-3981-4180-9f58-4014bffbd382" [label="***func_sigma0(func_sigma0.v:22)
-"]
+				"struct func_sigma0 ec7854a9-cf5e-4285-b56b-118a4c610420" [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="in_in_A">in_A</TD></TR>
+                    </TABLE>
+                </TD>
+                <TD>func_sigma0</TD>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="out_func">func</TD></TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>>]
 			}
 		}
 	}
 	subgraph clusterasic_core {
 		node [shape=box]
 		graph [label=asic_core]
-		"*memory_switch(memory_switch.v:21)
-#60fabb13-d8d5-41aa-95d9-6588d90302e8" [label="*memory_switch(memory_switch.v:21)
-"]
+		"struct memory_switch 860c76f6-dc5f-4d59-8465-a5d128ed408b" [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="in_addr">addr</TD></TR><TR><TD PORT="in_clk">clk</TD></TR><TR><TD PORT="in_in_A_1">in_A_1</TD></TR><TR><TD PORT="in_in_B_1">in_B_1</TD></TR><TR><TD PORT="in_in_C_1">in_C_1</TD></TR><TR><TD PORT="in_in_D_1">in_D_1</TD></TR><TR><TD PORT="in_in_E_1">in_E_1</TD></TR><TR><TD PORT="in_in_F_1">in_F_1</TD></TR><TR><TD PORT="in_in_G_1">in_G_1</TD></TR><TR><TD PORT="in_in_H_1">in_H_1</TD></TR><TR><TD PORT="in_in_A_2">in_A_2</TD></TR><TR><TD PORT="in_in_B_2">in_B_2</TD></TR><TR><TD PORT="in_in_C_2">in_C_2</TD></TR><TR><TD PORT="in_in_D_2">in_D_2</TD></TR><TR><TD PORT="in_in_E_2">in_E_2</TD></TR><TR><TD PORT="in_in_F_2">in_F_2</TD></TR><TR><TD PORT="in_in_G_2">in_G_2</TD></TR><TR><TD PORT="in_in_H_2">in_H_2</TD></TR>
+                    </TABLE>
+                </TD>
+                <TD>memory_switch</TD>
+                <TD>
+                    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="out_out_A">out_A</TD></TR><TR><TD PORT="out_out_B">out_B</TD></TR><TR><TD PORT="out_out_C">out_C</TD></TR><TR><TD PORT="out_out_D">out_D</TD></TR><TR><TD PORT="out_out_E">out_E</TD></TR><TR><TD PORT="out_out_F">out_F</TD></TR><TR><TD PORT="out_out_G">out_G</TD></TR><TR><TD PORT="out_out_H">out_H</TD></TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>>]
 	}
 }
