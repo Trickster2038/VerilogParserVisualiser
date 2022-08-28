@@ -1,121 +1,73 @@
 graph parent {
-	graph [splines=spline]
+	graph [splines=polyline]
 	graph [rankdir=LR]
 	subgraph cluster_asic_core {
 		node [shape=record]
 		graph [label=asic_core]
-		graph [splines=spline]
+		graph [splines=polyline]
 		graph [rankdir=LR]
-	struct_k_generator [label="{{<in_2_7> round_n |}|k_generator|{<in_8_39> k_out |}}"];	connection_2_7 [shape=point]	connection_2_7 -- struct_k_generator:in_2_7 [label=round_n]	connection_8_39 [shape=point]	struct_k_generator:out_8_39 -- connection_8_39 [label=k_out]	}
-	subgraph cluster_asic_core {
-		node [shape=record]
-		graph [label=asic_core]
-		graph [splines=spline]
+	struct_k_generator [label="{{<in_2_7> round_n |}|k_generator|{<out_8_39> k_out |}}"];	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6 [label="{{<in_port_2_33> in_A |<in_port_34_65> in_B |<in_port_66_97> in_C |<in_port_98_129> in_D |<in_port_130_161> in_E |<in_port_162_193> in_F |<in_port_194_225> in_G |<in_port_226_257> in_H |<in_port_258_263> round_n |<in_port_264_295> in_Wi |<in_port_296_296> mode |<in_port_297_297> clk |}}"];	struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6 [label="{{<out_port_298_329> out_A |<out_port_330_361> out_B |<out_port_362_393> out_C |<out_port_394_425> out_D |<out_port_426_457> out_E |<out_port_458_489> out_F |<out_port_490_521> out_G |<out_port_522_553> out_H |}}"];	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_2_33 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_2_33 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_2_33 [label=in_A_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_34_65 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_34_65 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_34_65 [label=in_B_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_66_97 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_66_97 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_66_97 [label=in_C_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_98_129 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_98_129 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_98_129 [label=in_D_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_130_161 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_130_161 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_130_161 [label=in_E_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_162_193 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_162_193 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_162_193 [label=in_F_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_194_225 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_194_225 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_194_225 [label=in_G_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_226_257 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_226_257 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_226_257 [label=in_H_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_258_263 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_258_263 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_258_263 [label=round_n_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_264_295 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_264_295 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_264_295 [label=in_Wi_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_296_296 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_296_296 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_296_296 [label=mode_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_297_297 [shape=point]	struct_in_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:in_port_297_297 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_297_297 [label=clk_inner_asic_core]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_298_329 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_298_329 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_298_329 [label=out_A_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_330_361 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_330_361 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_330_361 [label=out_B_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_362_393 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_362_393 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_362_393 [label=out_C_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_394_425 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_394_425 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_394_425 [label=out_D_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_426_457 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_426_457 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_426_457 [label=out_E_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_458_489 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_458_489 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_458_489 [label=out_F_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_490_521 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_490_521 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_490_521 [label=out_G_inner]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_522_553 [shape=point]	connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_522_553 -- struct_out_ports_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6:out_port_522_553 [label=out_H_inner]		graph [splines=polyline]
 		graph [rankdir=LR]
 		subgraph cluster_logic_module {
 			node [shape=record]
 			graph [label=logic_module]
-			graph [splines=spline]
+			graph [splines=polyline]
 			graph [rankdir=LR]
 			"[!][!]$add(synthetic)
-#1d89535f-2525-4bc4-b4b7-fe8ac1496b66" [label="[!][!]$add(synthetic)
+#3c905f8a_2eb5_4a46_aa91_128c3959ce1f" [label="[!][!]$add(synthetic)
 "]
-		}
-		subgraph cluster_logic_module {
-			node [shape=record]
-			graph [label=logic_module]
-			graph [splines=spline]
+			graph [splines=polyline]
 			graph [rankdir=LR]
 			"[!][!]$add(synthetic)
-#1b1ee164-9b17-4e4f-becd-4d4e0a76e3aa" [label="[!][!]$add(synthetic)
+#ea1efcd0_ab35_4d97_9b8b_7f33eca9106a" [label="[!][!]$add(synthetic)
 "]
-		}
-		subgraph cluster_logic_module {
-			node [shape=record]
-			graph [label=logic_module]
-			graph [splines=spline]
+			graph [splines=polyline]
 			graph [rankdir=LR]
 			subgraph cluster_func_t1 {
 				node [shape=record]
 				graph [label=func_t1]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#903cb1b9-633e-41e9-ae64-87f2c63f9f25" [label="[!][!][!]$add(synthetic)
+#d4503aff_c2dc_49f4_be93_47232c63c73c" [label="[!][!][!]$add(synthetic)
 "]
-			}
-			subgraph cluster_func_t1 {
-				node [shape=record]
-				graph [label=func_t1]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#034f15c0-dabb-430e-8cfb-779aea663ccf" [label="[!][!][!]$add(synthetic)
+#9fab97e7_4761_4bdf_815b_708aa0a3dfd5" [label="[!][!][!]$add(synthetic)
 "]
-			}
-			subgraph cluster_func_t1 {
-				node [shape=record]
-				graph [label=func_t1]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#abf46240-3298-4bb0-a181-447e1d797733" [label="[!][!][!]$add(synthetic)
+#81b11275_b06d_493f_90a7_589ad0a75180" [label="[!][!][!]$add(synthetic)
 "]
-			}
-			subgraph cluster_func_t1 {
-				node [shape=record]
-				graph [label=func_t1]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#ae67a658-a69b-4834-b977-becdc9420a24" [label="[!][!][!]$add(synthetic)
+#b7d93102_ab2f_45f0_86dd_9a6287a6dd13" [label="[!][!][!]$add(synthetic)
 "]
-			}
-			subgraph cluster_func_t1 {
-				node [shape=record]
-				graph [label=func_t1]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
-			struct_func_ch [label="{{<in_2_33> in_E |<in_34_65> in_F |<in_66_97> in_G |}|func_ch|{<in_98_129> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_ch:in_2_33 [label=in_E]			connection_34_65 [shape=point]			connection_34_65 -- struct_func_ch:in_34_65 [label=in_F]			connection_66_97 [shape=point]			connection_66_97 -- struct_func_ch:in_66_97 [label=in_G]			connection_98_129 [shape=point]			struct_func_ch:out_98_129 -- connection_98_129 [label=func]			}
-			subgraph cluster_func_t1 {
-				node [shape=record]
-				graph [label=func_t1]
-				graph [splines=spline]
+			struct_func_ch [label="{{<in_2_33> in_E |<in_34_65> in_F |<in_66_97> in_G |}|func_ch|{<out_98_129> func |}}"];			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d [label="{{<in_port_2_33> in_E |<in_port_34_65> in_F |<in_port_66_97> in_G |<in_port_98_129> in_H |<in_port_130_161> in_Ki |<in_port_162_193> in_Wi |}}"];			struct_out_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d [label="{{<out_port_194_225> func |}}"];			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_2_33 [shape=point]			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_2_33 -- connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_2_33 [label=in_E_inner_func_t1]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_34_65 [shape=point]			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_34_65 -- connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_34_65 [label=in_F_inner_func_t1]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_66_97 [shape=point]			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_66_97 -- connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_66_97 [label=in_G_inner_func_t1]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_98_129 [shape=point]			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_98_129 -- connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_98_129 [label=in_H_inner_func_t1]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_130_161 [shape=point]			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_130_161 -- connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_130_161 [label=in_Ki_inner_func_t1]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_162_193 [shape=point]			struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_162_193 -- connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_162_193 [label=in_Wi_inner_func_t1]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_194_225 [shape=point]			connection_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d_194_225 -- struct_out_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:out_port_194_225 [label=func_inner]			struct_out_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:out_port_194_225 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_386_417 [label=func_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_130_161 -- struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_2_33 [label=in_E_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_162_193 -- struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_34_65 [label=in_F_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_194_225 -- struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_66_97 [label=in_G_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_226_257 -- struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_98_129 [label=in_H_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_258_289 -- struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_130_161 [label=in_Ki_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_290_321 -- struct_in_ports_func_t1_a9e50efd_563f_4811_ab6f_86abc2dfa92d:in_port_162_193 [label=in_Wi_outer]				graph [splines=polyline]
 				graph [rankdir=LR]
-			struct_func_sigma1 [label="{{<in_2_33> in_E |}|func_sigma1|{<in_34_65> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_sigma1:in_2_33 [label=in_E]			connection_34_65 [shape=point]			struct_func_sigma1:out_34_65 -- connection_34_65 [label=func]			}
-		}
-		subgraph cluster_logic_module {
-			node [shape=record]
-			graph [label=logic_module]
-			graph [splines=spline]
+			struct_func_sigma1 [label="{{<in_2_33> in_E |}|func_sigma1|{<out_34_65> func |}}"];			}
+		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe [label="{{<in_port_2_33> in_A |<in_port_34_65> in_B |<in_port_66_97> in_C |<in_port_98_129> in_D |<in_port_130_161> in_E |<in_port_162_193> in_F |<in_port_194_225> in_G |<in_port_226_257> in_H |<in_port_258_289> in_Ki |<in_port_290_321> in_Wi |}}"];		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe [label="{{<out_port_322_353> out_A |<out_port_2_33> out_B |<out_port_34_65> out_C |<out_port_66_97> out_D |<out_port_354_385> out_E |<out_port_130_161> out_F |<out_port_162_193> out_G |<out_port_194_225> out_H |}}"];		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_2_33 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_2_33 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_2_33 [label=in_A_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_34_65 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_34_65 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_34_65 [label=in_B_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_66_97 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_66_97 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_66_97 [label=in_C_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_98_129 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_98_129 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_98_129 [label=in_D_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_130_161 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_130_161 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_130_161 [label=in_E_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_162_193 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_162_193 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_162_193 [label=in_F_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_194_225 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_194_225 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_194_225 [label=in_G_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_226_257 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_226_257 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_226_257 [label=in_H_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_258_289 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_258_289 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_258_289 [label=in_Ki_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_290_321 [shape=point]		struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_290_321 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_290_321 [label=in_Wi_inner_logic_module]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_322_353 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_322_353 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_322_353 [label=out_A_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_2_33 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_2_33 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_2_33 [label=out_B_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_34_65 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_34_65 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_34_65 [label=out_C_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_66_97 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_66_97 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_66_97 [label=out_D_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_354_385 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_354_385 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_354_385 [label=out_E_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_130_161 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_130_161 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_130_161 [label=out_F_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_162_193 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_162_193 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_162_193 [label=out_G_inner]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_194_225 [shape=point]		connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_194_225 -- struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_194_225 [label=out_H_inner]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_586_617 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_2_33 [label=in_A_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_618_649 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_34_65 [label=in_B_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_650_681 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_66_97 [label=in_C_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_682_713 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_98_129 [label=in_D_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_714_745 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_130_161 [label=in_E_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_746_777 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_162_193 [label=in_F_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_778_809 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_194_225 [label=in_G_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_810_841 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_226_257 [label=in_H_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_554_585 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_258_289 [label=in_Ki_outer]		connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_264_295 -- struct_in_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:in_port_290_321 [label=in_Wi_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_322_353 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_298_329 [label=out_A_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_2_33 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_330_361 [label=out_B_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_34_65 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_362_393 [label=out_C_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_66_97 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_394_425 [label=out_D_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_354_385 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_426_457 [label=out_E_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_130_161 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_458_489 [label=out_F_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_162_193 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_490_521 [label=out_G_outer]		struct_out_ports_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe:out_port_194_225 -- connection_asic_core_36551cad_60bf_4cf0_aa60_4f6c8c5caba6_522_553 [label=out_H_outer]			graph [splines=polyline]
 			graph [rankdir=LR]
 			subgraph cluster_func_t2 {
 				node [shape=record]
 				graph [label=func_t2]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
 				"[!][!][!]$add(synthetic)
-#28550ed8-716d-47ab-9981-706fecdedd9b" [label="[!][!][!]$add(synthetic)
+#90ad4ce1_074a_43e4_9cd2_7e57959bf7d1" [label="[!][!][!]$add(synthetic)
 "]
-			}
-			subgraph cluster_func_t2 {
-				node [shape=record]
-				graph [label=func_t2]
-				graph [splines=spline]
+				graph [splines=polyline]
 				graph [rankdir=LR]
-			struct_func_Ma [label="{{<in_2_33> in_A |<in_34_65> in_B |<in_66_97> in_C |}|func_Ma|{<in_98_129> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_Ma:in_2_33 [label=in_A]			connection_34_65 [shape=point]			connection_34_65 -- struct_func_Ma:in_34_65 [label=in_B]			connection_66_97 [shape=point]			connection_66_97 -- struct_func_Ma:in_66_97 [label=in_C]			connection_98_129 [shape=point]			struct_func_Ma:out_98_129 -- connection_98_129 [label=func]			}
-			subgraph cluster_func_t2 {
-				node [shape=record]
-				graph [label=func_t2]
-				graph [splines=spline]
+			struct_func_Ma [label="{{<in_2_33> in_A |<in_34_65> in_B |<in_66_97> in_C |}|func_Ma|{<out_98_129> func |}}"];			struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618 [label="{{<in_port_2_33> in_A |<in_port_34_65> in_B |<in_port_66_97> in_C |}}"];			struct_out_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618 [label="{{<out_port_98_129> func |}}"];			connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_2_33 [shape=point]			struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:in_port_2_33 -- connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_2_33 [label=in_A_inner_func_t2]			connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_34_65 [shape=point]			struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:in_port_34_65 -- connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_34_65 [label=in_B_inner_func_t2]			connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_66_97 [shape=point]			struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:in_port_66_97 -- connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_66_97 [label=in_C_inner_func_t2]			connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_98_129 [shape=point]			connection_func_t2_9fd05996_195f_46b2_80df_64dbc818a618_98_129 -- struct_out_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:out_port_98_129 [label=func_inner]			struct_out_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:out_port_98_129 -- connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_418_449 [label=func_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_2_33 -- struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:in_port_2_33 [label=in_A_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_34_65 -- struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:in_port_34_65 [label=in_B_outer]			connection_logic_module_fd737238_6d11_4c8a_89ef_bebe23649dbe_66_97 -- struct_in_ports_func_t2_9fd05996_195f_46b2_80df_64dbc818a618:in_port_66_97 [label=in_C_outer]				graph [splines=polyline]
 				graph [rankdir=LR]
-			struct_func_sigma0 [label="{{<in_2_33> in_A |}|func_sigma0|{<in_34_65> func |}}"];			connection_2_33 [shape=point]			connection_2_33 -- struct_func_sigma0:in_2_33 [label=in_A]			connection_34_65 [shape=point]			struct_func_sigma0:out_34_65 -- connection_34_65 [label=func]			}
+			struct_func_sigma0 [label="{{<in_2_33> in_A |}|func_sigma0|{<out_34_65> func |}}"];			}
 		}
-	}
-	subgraph cluster_asic_core {
-		node [shape=record]
-		graph [label=asic_core]
-		graph [splines=spline]
+		graph [splines=polyline]
 		graph [rankdir=LR]
-	struct_memory_switch [label="{{<in_2_2> addr |<in_3_3> clk |<in_4_35> in_A_1 |<in_36_67> in_B_1 |<in_68_99> in_C_1 |<in_100_131> in_D_1 |<in_132_163> in_E_1 |<in_164_195> in_F_1 |<in_196_227> in_G_1 |<in_228_259> in_H_1 |<in_260_291> in_A_2 |<in_292_323> in_B_2 |<in_324_355> in_C_2 |<in_356_387> in_D_2 |<in_388_419> in_E_2 |<in_420_451> in_F_2 |<in_452_483> in_G_2 |<in_484_515> in_H_2 |}|memory_switch|{<in_516_547> out_A |<in_548_579> out_B |<in_580_611> out_C |<in_612_643> out_D |<in_644_675> out_E |<in_676_707> out_F |<in_708_739> out_G |<in_740_771> out_H |}}"];	connection_2_2 [shape=point]	connection_2_2 -- struct_memory_switch:in_2_2 [label=addr]	connection_3_3 [shape=point]	connection_3_3 -- struct_memory_switch:in_3_3 [label=clk]	connection_4_35 [shape=point]	connection_4_35 -- struct_memory_switch:in_4_35 [label=in_A_1]	connection_36_67 [shape=point]	connection_36_67 -- struct_memory_switch:in_36_67 [label=in_B_1]	connection_68_99 [shape=point]	connection_68_99 -- struct_memory_switch:in_68_99 [label=in_C_1]	connection_100_131 [shape=point]	connection_100_131 -- struct_memory_switch:in_100_131 [label=in_D_1]	connection_132_163 [shape=point]	connection_132_163 -- struct_memory_switch:in_132_163 [label=in_E_1]	connection_164_195 [shape=point]	connection_164_195 -- struct_memory_switch:in_164_195 [label=in_F_1]	connection_196_227 [shape=point]	connection_196_227 -- struct_memory_switch:in_196_227 [label=in_G_1]	connection_228_259 [shape=point]	connection_228_259 -- struct_memory_switch:in_228_259 [label=in_H_1]	connection_260_291 [shape=point]	connection_260_291 -- struct_memory_switch:in_260_291 [label=in_A_2]	connection_292_323 [shape=point]	connection_292_323 -- struct_memory_switch:in_292_323 [label=in_B_2]	connection_324_355 [shape=point]	connection_324_355 -- struct_memory_switch:in_324_355 [label=in_C_2]	connection_356_387 [shape=point]	connection_356_387 -- struct_memory_switch:in_356_387 [label=in_D_2]	connection_388_419 [shape=point]	connection_388_419 -- struct_memory_switch:in_388_419 [label=in_E_2]	connection_420_451 [shape=point]	connection_420_451 -- struct_memory_switch:in_420_451 [label=in_F_2]	connection_452_483 [shape=point]	connection_452_483 -- struct_memory_switch:in_452_483 [label=in_G_2]	connection_484_515 [shape=point]	connection_484_515 -- struct_memory_switch:in_484_515 [label=in_H_2]	connection_516_547 [shape=point]	struct_memory_switch:out_516_547 -- connection_516_547 [label=out_A]	connection_548_579 [shape=point]	struct_memory_switch:out_548_579 -- connection_548_579 [label=out_B]	connection_580_611 [shape=point]	struct_memory_switch:out_580_611 -- connection_580_611 [label=out_C]	connection_612_643 [shape=point]	struct_memory_switch:out_612_643 -- connection_612_643 [label=out_D]	connection_644_675 [shape=point]	struct_memory_switch:out_644_675 -- connection_644_675 [label=out_E]	connection_676_707 [shape=point]	struct_memory_switch:out_676_707 -- connection_676_707 [label=out_F]	connection_708_739 [shape=point]	struct_memory_switch:out_708_739 -- connection_708_739 [label=out_G]	connection_740_771 [shape=point]	struct_memory_switch:out_740_771 -- connection_740_771 [label=out_H]	}
+	struct_memory_switch [label="{{<in_2_2> addr |<in_3_3> clk |<in_4_35> in_A_1 |<in_36_67> in_B_1 |<in_68_99> in_C_1 |<in_100_131> in_D_1 |<in_132_163> in_E_1 |<in_164_195> in_F_1 |<in_196_227> in_G_1 |<in_228_259> in_H_1 |<in_260_291> in_A_2 |<in_292_323> in_B_2 |<in_324_355> in_C_2 |<in_356_387> in_D_2 |<in_388_419> in_E_2 |<in_420_451> in_F_2 |<in_452_483> in_G_2 |<in_484_515> in_H_2 |}|memory_switch|{<out_516_547> out_A |<out_548_579> out_B |<out_580_611> out_C |<out_612_643> out_D |<out_644_675> out_E |<out_676_707> out_F |<out_708_739> out_G |<out_740_771> out_H |}}"];	}
 }
