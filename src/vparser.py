@@ -107,27 +107,44 @@ class Project:
             return 0
         
 
-    def add_connections(self, root_graph, root_node, in_ports, out_ports):
-        for port in in_ports:
-            # root_graph.edge(
-            #     f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""",
-            #     f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]}""", 
-            #     label=port["name"]
-            #     )
-            root_graph.body.append(f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
-            root_graph.body.append(
-                    f"""connection_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
-                    f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
-                    )
+    def add_connections(self, uuid_str, root_node, root_graph, parent, parent_uuid, preparent, preparent_uuid, in_ports, out_ports):
+        if preparent != None:
+            for port in in_ports:
+                cells = self.modules[preparent]["cells"].values()
+                parent_cell = list(filter(lambda x: x['type'] == parent, cells))[0]
+                port_name = port["name"]
+                parent_in_port = {
+                    "name": port_name,
+                    "from_bit": parent_cell["connections"][port_name][0],
+                    "to_bit": parent_cell["connections"][port_name][-1]
+                }
+                # root_graph.edge(
+                #     f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""",
+                #     f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]}""", 
+                #     label=port["name"]
+                #     )
+                root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]} [shape=point]""")
+                root_graph.body.append(
+                        f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
+                        f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
+                        )
         for port in out_ports:
-            root_graph.body.append(f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+            cells = self.modules[parent]["cells"].values()
+            parent_cell = list(filter(lambda x: x['type'] == root_node, cells))[0]
+            port_name = port["name"]
+            parent_out_port = {
+                "name": port_name,
+                "from_bit": parent_cell["connections"][port_name][0],
+                "to_bit": parent_cell["connections"][port_name][-1]
+            }
+            root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
             root_graph.body.append(
-                f"""struct_{root_node}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
-                f"""connection_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
+                f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
+                f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
                 )
         pass
 
-    def stuct_to_graphviz(self, uuid_str: str, root_node: str, root_graph):
+    def stuct_to_graphviz(self, uuid_str: str, root_node: str, root_graph, parent, parent_uuid, preparent, preparent_uuid):
         module = self.modules[root_node]
         in_ports = []
         out_ports = []
@@ -159,16 +176,18 @@ class Project:
 
         # root_graph.body.append(f""";""")
         # root_graph.body.append(root_node + " [label={" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}]")
-        root_graph.body.append("struct_" + root_node + """ [label="{""" + "{" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}" + """}"];""")
+        root_graph.body.append("struct_" + root_node + "_" + uuid_str + "_" + parent_uuid + """ [label="{""" + "{" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}" + """}"];""")
         # root_graph.body.append("""struct3 [label="hello&#92;nworld |{ b |{c|<here> d|e}| f}| g | h"];""")
+        self.add_connections(uuid_str, root_node, root_graph, parent, parent_uuid, preparent, preparent_uuid, in_ports, out_ports)
         return (in_ports, out_ports)
 
     def to_graphviz(self, root_node: str, depth: int = 0, root_graph=None, max_depth: int = 0, \
         parent=None, parent_uuid=None, preparent=None, preparent_uuid=None):
 
-        root_graph = root_graph or graphviz.Graph('parent')
+        root_graph = root_graph or graphviz.Graph('parent', engine="dot")
         root_graph.attr("graph", splines='polyline')
         root_graph.attr("graph", rankdir='LR')
+        root_graph.attr("graph", remincross="true")
         # root_graph.attr("graph", overlap='false')
         uuid_str = str(uuid.uuid4()).replace("-", "_")
         # print((uuid_str).replace("-", "_"))
@@ -186,7 +205,8 @@ class Project:
                     # self.add_ports(root_graph, root_node, uuid_str)
             else:
                 # root_graph.node(s + "#" + uuid_str, s)
-                in_ports, out_ports = self.stuct_to_graphviz(uuid_str, root_node, root_graph)
+                in_ports, out_ports = self.stuct_to_graphviz(uuid_str, root_node, root_graph,\
+                    parent, parent_uuid, preparent, preparent_uuid)
                 # self.add_connections(root_graph, root_node, in_ports, out_ports)
             if parent != None:
                     self.add_ports(root_graph, parent, parent_uuid)
