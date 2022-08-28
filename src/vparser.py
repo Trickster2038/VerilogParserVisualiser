@@ -14,6 +14,7 @@ class Project:
         self.outputs = []
         self.parents = []
         self.parents_connected = []
+        self.top_module = None
 
     def connect_to_parent(self, root_graph, parent, parent_uuid, preparent, preparent_uuid):
         if (parent + "_" + parent_uuid) in self.parents_connected:
@@ -128,6 +129,21 @@ class Project:
                         f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
                         f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
                         )
+        else:
+            for port in in_ports:
+                cells = self.modules[parent]["cells"].values()
+                parent_cell = list(filter(lambda x: x['type'] == root_node, cells))[0]
+                port_name = port["name"]
+                parent_in_port = {
+                    "name": port_name,
+                    "from_bit": parent_cell["connections"][port_name][0],
+                    "to_bit": parent_cell["connections"][port_name][-1]
+                }
+                # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                root_graph.body.append(
+                        f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
+                        f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
+                        )
         for port in out_ports:
             cells = self.modules[parent]["cells"].values()
             parent_cell = list(filter(lambda x: x['type'] == root_node, cells))[0]
@@ -142,6 +158,23 @@ class Project:
                 f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
                 f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
                 )
+        # if parent == self.top_module:
+        #     print("gg")
+        #     for port in out_ports:
+        #         print("gg2")
+        #         cells = self.modules[parent]["cells"].values()
+        #         parent_cell = list(filter(lambda x: x['type'] == root_node, cells))[0]
+        #         port_name = port["name"]
+        #         parent_out_port = {
+        #             "name": port_name,
+        #             "from_bit": parent_cell["connections"][port_name][0],
+        #             "to_bit": parent_cell["connections"][port_name][-1]
+        #         }
+        #         root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
+        #         root_graph.body.append(
+        #             f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
+        #             f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
+        #             )
         pass
 
     def stuct_to_graphviz(self, uuid_str: str, root_node: str, root_graph, parent, parent_uuid, preparent, preparent_uuid):
@@ -184,11 +217,13 @@ class Project:
     def to_graphviz(self, root_node: str, depth: int = 0, root_graph=None, max_depth: int = 0, \
         parent=None, parent_uuid=None, preparent=None, preparent_uuid=None):
 
+        self.top_module = self.top_module or root_node
+
         root_graph = root_graph or graphviz.Graph('parent', engine="dot")
         root_graph.attr("graph", splines='polyline')
         root_graph.attr("graph", rankdir='LR')
         root_graph.attr("graph", remincross="true")
-        # root_graph.attr("graph", overlap='false')
+        root_graph.attr("graph", overlap='scalexy')
         uuid_str = str(uuid.uuid4()).replace("-", "_")
         # print((uuid_str).replace("-", "_"))
 
