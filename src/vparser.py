@@ -50,7 +50,6 @@ class Project:
                         )
         return 0
 
-    # FIXME: ports on t1
     def add_ports(self, root_graph, root_node, root_uuid):
         if (root_node + "_" + root_uuid) in self.parents:
             return 0
@@ -97,7 +96,6 @@ class Project:
                         f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}_inner_{root_node}]"""
                         )
             
-            # FIXME: ports on t1
             for port in out_ports:
                 root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
@@ -137,7 +135,7 @@ class Project:
                     "from_bit": parent_cell["connections"][port_name][0],
                     "to_bit": parent_cell["connections"][port_name][-1]
                 }
-                root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
                         f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
@@ -186,11 +184,42 @@ class Project:
 
         self.add_connections(uuid_str, root_node, root_graph, parent, parent_uuid, preparent, preparent_uuid, in_ports, out_ports)
         return (in_ports, out_ports)
+    
+    def add_synth_connections(self, synth_elem, synth_uuid_str, root_graph, in_ports, out_ports, parent, parent_uuid):
+        struct = "struct_" + synth_elem['type'][1:] + "_" + synth_uuid_str + \
+            "_" + parent + "_" + parent_uuid 
 
-    def synth_to_graphviz(self, synth_elem, root_graph):
+        parent_cell = synth_elem
+        for port in in_ports:
+                port_name = port["name"]
+                parent_in_port = {
+                    "name": port_name,
+                    "from_bit": parent_cell["connections"][port_name][0],
+                    "to_bit": parent_cell["connections"][port_name][-1]
+                }
+                root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                root_graph.body.append(
+                        f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
+                        f"""{struct}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
+                        )
+        for port in out_ports:
+                port_name = port["name"]
+                parent_out_port = {
+                    "name": port_name,
+                    "from_bit": parent_cell["connections"][port_name][0],
+                    "to_bit": parent_cell["connections"][port_name][-1]
+                }
+                root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                root_graph.body.append(
+                    f"""{struct}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
+                    f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
+                    )
+        pass
+
+    def synth_to_graphviz(self, synth_elem, root_graph, parent, parent_uuid):
         in_ports = []
         out_ports = []
-        synt_uuid_str = str(uuid.uuid4()).replace("-", "_")
+        synth_uuid_str = str(uuid.uuid4()).replace("-", "_")
         for port in synth_elem['port_directions']:
             if synth_elem['port_directions'][port] == "input":
                 in_ports.append({
@@ -211,9 +240,12 @@ class Project:
         for port in out_ports:
             out_ports_str += f"""<out_{port["from_bit"]}_{port["to_bit"]}> {port["name"]} |"""
 
-        root_graph.body.append("struct_" + synth_elem['type'][1:] + "_" + synt_uuid_str + """ [label="{""" + "{" + in_ports_str + "}|" + synth_elem['type'][1:] + "|{" + out_ports_str + "}" + """}"];""")
+        root_graph.body.append("struct_" + synth_elem['type'][1:] + "_" + synth_uuid_str + \
+            "_" + parent + "_" + parent_uuid + \
+            """ [label="{""" + "{" + in_ports_str + "}|" + synth_elem['type'][1:] + "|{" + out_ports_str + "}" + """}"];""")
 
-        #  TODO: add connections
+        self.add_synth_connections(synth_elem, synth_uuid_str, root_graph, \
+            in_ports, out_ports, parent, parent_uuid)
         pass
 
     def to_graphviz(self, root_node: str, depth: int = 0, root_graph=None, max_depth: int = 0, \
@@ -240,8 +272,8 @@ class Project:
                     for x in children:
                         self.to_graphviz(x['type'], depth + 1, c, parent=root_node, parent_uuid=uuid_str, \
                             preparent=parent, preparent_uuid=parent_uuid)
-                        if x['type'][0] == '$':
-                            self.synth_to_graphviz(x, c)
+                        if (x['type'][0] == '$') and (parent != None):
+                            self.synth_to_graphviz(x, c, root_node, uuid_str)
                     # self.add_ports(root_graph, root_node, uuid_str)
             else:
                 # root_graph.node(s + "#" + uuid_str, s)
@@ -255,8 +287,8 @@ class Project:
                     self.connect_to_parent(root_graph, parent, parent_uuid, preparent, preparent_uuid)
 
         else:
-            s = ((depth * "[!]") + root_node + "(synthetic)\n")
-            root_graph.node(s + "#" + uuid_str, s)
+            # s = ((depth * "[!]") + root_node + "(synthetic)\n")
+            # root_graph.node(s + "#" + uuid_str, s)
             # in_ports, out_ports = self.stuct_to_graphviz(uuid_str, root_node, root_graph,\
             #         parent, parent_uuid, preparent, preparent_uuid)
             pass
