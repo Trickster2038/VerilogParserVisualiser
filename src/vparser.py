@@ -91,7 +91,7 @@ class Project:
             root_graph.body.append("struct_out_ports_" + root_node + "_" + root_uuid + """ [label="{""" + "{" + out_ports_str + "}" + """}"];""")
 
             for port in in_ports:
-                # root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""struct_in_ports_{root_node + "_" + root_uuid}:in_port_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
                         f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}_inner_{root_node}]"""
@@ -99,7 +99,7 @@ class Project:
             
             # FIXME: ports on t1
             for port in out_ports:
-                # root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]}"""
                         + " -- " +
@@ -111,7 +111,8 @@ class Project:
         
 
     def add_connections(self, uuid_str, root_node, root_graph, parent, parent_uuid, preparent, preparent_uuid, in_ports, out_ports):
-        if preparent != None:
+        # if preparent != None:
+        if False:
             for port in in_ports:
                 cells = self.modules[preparent]["cells"].values()
                 parent_cell = list(filter(lambda x: x['type'] == parent, cells))[0]
@@ -121,11 +122,6 @@ class Project:
                     "from_bit": parent_cell["connections"][port_name][0],
                     "to_bit": parent_cell["connections"][port_name][-1]
                 }
-                # root_graph.edge(
-                #     f"""connection_{port["from_bit"]}_{port["to_bit"]} [shape=point]""",
-                #     f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]}""", 
-                #     label=port["name"]
-                #     )
                 # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
@@ -141,7 +137,7 @@ class Project:
                     "from_bit": parent_cell["connections"][port_name][0],
                     "to_bit": parent_cell["connections"][port_name][-1]
                 }
-                # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
                         f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
@@ -155,7 +151,7 @@ class Project:
                 "from_bit": parent_cell["connections"][port_name][0],
                 "to_bit": parent_cell["connections"][port_name][-1]
             }
-            # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
+            root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
             root_graph.body.append(
                 f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
                 f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
@@ -186,14 +182,8 @@ class Project:
         for port in out_ports:
             out_ports_str += f"""<out_{port["from_bit"]}_{port["to_bit"]}> {port["name"]} |"""
 
-        # root_graph.body.append(f"""
-        # &#123;{in_ports}&#125;| {root_node} |&#123; {out_ports} &#125;
-        # """)
-
-        # root_graph.body.append(f""";""")
-        # root_graph.body.append(root_node + " [label={" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}]")
         root_graph.body.append("struct_" + root_node + "_" + uuid_str + "_" + parent_uuid + """ [label="{""" + "{" + in_ports_str + "}|" + root_node + "|{" + out_ports_str + "}" + """}"];""")
-        # root_graph.body.append("""struct3 [label="hello&#92;nworld |{ b |{c|<here> d|e}| f}| g | h"];""")
+
         self.add_connections(uuid_str, root_node, root_graph, parent, parent_uuid, preparent, preparent_uuid, in_ports, out_ports)
         return (in_ports, out_ports)
 
@@ -234,10 +224,9 @@ class Project:
         root_graph = root_graph or graphviz.Graph('parent', engine="dot")
         root_graph.attr("graph", splines='polyline')
         root_graph.attr("graph", rankdir='LR')
-        root_graph.attr("graph", remincross="true")
+        # root_graph.attr("graph", remincross="true")
         root_graph.attr("graph", overlap='scalexy')
         uuid_str = str(uuid.uuid4()).replace("-", "_")
-        # print((uuid_str).replace("-", "_"))
 
         if root_node[0] != "$":
         # if True:
@@ -281,6 +270,7 @@ if __name__ == "__main__":
         data_txt = file.read().replace('\n', '')
     proj = Project(data_txt)
     x = proj.to_graphviz("asic_core").view()
+    
     # x = proj.to_graphviz("asic_core").unflatten(stagger=3).view()
     # dot.render(directory='doctest-output').replace('\\', '/')
     # print(proj.to_graphviz("asic_core").source)
