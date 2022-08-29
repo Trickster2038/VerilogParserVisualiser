@@ -50,6 +50,7 @@ class Project:
                         )
         return 0
 
+    # FIXME: ports on t1
     def add_ports(self, root_graph, root_node, root_uuid):
         if (root_node + "_" + root_uuid) in self.parents:
             return 0
@@ -90,14 +91,15 @@ class Project:
             root_graph.body.append("struct_out_ports_" + root_node + "_" + root_uuid + """ [label="{""" + "{" + out_ports_str + "}" + """}"];""")
 
             for port in in_ports:
-                root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                # root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""struct_in_ports_{root_node + "_" + root_uuid}:in_port_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
                         f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}_inner_{root_node}]"""
                         )
-
+            
+            # FIXME: ports on t1
             for port in out_ports:
-                root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
+                # root_graph.body.append(f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""connection_{root_node + "_" + root_uuid}_{port["from_bit"]}_{port["to_bit"]}"""
                         + " -- " +
@@ -124,7 +126,7 @@ class Project:
                 #     f"""struct_{root_node}:in_{port["from_bit"]}_{port["to_bit"]}""", 
                 #     label=port["name"]
                 #     )
-                root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]} [shape=point]""")
+                # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]} [shape=point]""")
                 root_graph.body.append(
                         f"""connection_{parent + "_" + parent_uuid}_{parent_in_port["from_bit"]}_{parent_in_port["to_bit"]}""" + " -- " +
                         f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:in_{port["from_bit"]}_{port["to_bit"]} [label={port["name"]}]"""
@@ -153,29 +155,12 @@ class Project:
                 "from_bit": parent_cell["connections"][port_name][0],
                 "to_bit": parent_cell["connections"][port_name][-1]
             }
-            root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
+            # root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
             root_graph.body.append(
                 f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
                 f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
                 )
-        # if parent == self.top_module:
-        #     print("gg")
-        #     for port in out_ports:
-        #         print("gg2")
-        #         cells = self.modules[parent]["cells"].values()
-        #         parent_cell = list(filter(lambda x: x['type'] == root_node, cells))[0]
-        #         port_name = port["name"]
-        #         parent_out_port = {
-        #             "name": port_name,
-        #             "from_bit": parent_cell["connections"][port_name][0],
-        #             "to_bit": parent_cell["connections"][port_name][-1]
-        #         }
-        #         root_graph.body.append(f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [shape=point]""")
-        #         root_graph.body.append(
-        #             f"""struct_{root_node + "_" + uuid_str + "_" + parent_uuid}:out_{port["from_bit"]}_{port["to_bit"]}""" + " -- " +
-        #             f"""connection_{parent + "_" + parent_uuid}_{parent_out_port["from_bit"]}_{parent_out_port["to_bit"]} [label={port["name"]}]"""
-        #             )
-        pass
+        return 0
 
     def stuct_to_graphviz(self, uuid_str: str, root_node: str, root_graph, parent, parent_uuid, preparent, preparent_uuid):
         module = self.modules[root_node]
@@ -196,11 +181,9 @@ class Project:
                 })
         in_ports_str = ""
         for port in in_ports:
-            # in_ports_str += f"""<TR><TD PORT="in_{port["from_bit"]}_{port["to_bit"]}">{port["name"]}</TD></TR>"""
             in_ports_str += f"""<in_{port["from_bit"]}_{port["to_bit"]}> {port["name"]} |"""
         out_ports_str = ""
         for port in out_ports:
-            # out_ports_str += f"""<TR><TD PORT="out_{port["name"]}">{port["name"]}</TD></TR>"""
             out_ports_str += f"""<out_{port["from_bit"]}_{port["to_bit"]}> {port["name"]} |"""
 
         # root_graph.body.append(f"""
@@ -213,6 +196,35 @@ class Project:
         # root_graph.body.append("""struct3 [label="hello&#92;nworld |{ b |{c|<here> d|e}| f}| g | h"];""")
         self.add_connections(uuid_str, root_node, root_graph, parent, parent_uuid, preparent, preparent_uuid, in_ports, out_ports)
         return (in_ports, out_ports)
+
+    def synth_to_graphviz(self, synth_elem, root_graph):
+        in_ports = []
+        out_ports = []
+        synt_uuid_str = str(uuid.uuid4()).replace("-", "_")
+        for port in synth_elem['port_directions']:
+            if synth_elem['port_directions'][port] == "input":
+                in_ports.append({
+                    "name": port,
+                    "from_bit": synth_elem["connections"][port][0],
+                    "to_bit": synth_elem["connections"][port][-1]
+                })
+            else:
+                out_ports.append({
+                    "name": port,
+                    "from_bit": synth_elem["connections"][port][0],
+                    "to_bit": synth_elem["connections"][port][-1]
+                })
+        in_ports_str = ""
+        for port in in_ports:
+            in_ports_str += f"""<in_{port["from_bit"]}_{port["to_bit"]}> {port["name"]} |"""
+        out_ports_str = ""
+        for port in out_ports:
+            out_ports_str += f"""<out_{port["from_bit"]}_{port["to_bit"]}> {port["name"]} |"""
+
+        root_graph.body.append("struct_" + synth_elem['type'][1:] + "_" + synt_uuid_str + """ [label="{""" + "{" + in_ports_str + "}|" + synth_elem['type'][1:] + "|{" + out_ports_str + "}" + """}"];""")
+
+        #  TODO: add connections
+        pass
 
     def to_graphviz(self, root_node: str, depth: int = 0, root_graph=None, max_depth: int = 0, \
         parent=None, parent_uuid=None, preparent=None, preparent_uuid=None):
@@ -228,15 +240,19 @@ class Project:
         # print((uuid_str).replace("-", "_"))
 
         if root_node[0] != "$":
+        # if True:
             s = ((depth * "*") + root_node +
                  "(" + self.modules[root_node]["attributes"]["src"] + ")\n")
             children = list(self.modules[root_node]["cells"].values())
             if len(list(filter(lambda x: x['type'][0] != "$", children))) != 0:
+            # if True:
                 with root_graph.subgraph(name='cluster_'+root_node, node_attr={'shape': 'record'}) as c:
                     c.attr('graph', label=root_node)
                     for x in children:
                         self.to_graphviz(x['type'], depth + 1, c, parent=root_node, parent_uuid=uuid_str, \
                             preparent=parent, preparent_uuid=parent_uuid)
+                        if x['type'][0] == '$':
+                            self.synth_to_graphviz(x, c)
                     # self.add_ports(root_graph, root_node, uuid_str)
             else:
                 # root_graph.node(s + "#" + uuid_str, s)
@@ -252,6 +268,8 @@ class Project:
         else:
             s = ((depth * "[!]") + root_node + "(synthetic)\n")
             root_graph.node(s + "#" + uuid_str, s)
+            # in_ports, out_ports = self.stuct_to_graphviz(uuid_str, root_node, root_graph,\
+            #         parent, parent_uuid, preparent, preparent_uuid)
             pass
 
         return root_graph
@@ -263,5 +281,6 @@ if __name__ == "__main__":
         data_txt = file.read().replace('\n', '')
     proj = Project(data_txt)
     x = proj.to_graphviz("asic_core").view()
+    # x = proj.to_graphviz("asic_core").unflatten(stagger=3).view()
     # dot.render(directory='doctest-output').replace('\\', '/')
     # print(proj.to_graphviz("asic_core").source)
